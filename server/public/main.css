@@ -3,12 +3,13 @@ body {
     margin: 0;
     padding: 0;
     font-family: fantasy, arial;
+    background-color: #f4f4f4;
 }
 canvas{
-    background-color: #f4f4f4;
+    background-color: #fff;
     box-shadow:0 0 5px #999;
     display:block;
-    margin: 0 auto;
+    margin: 0 auto 20px;
     position: relative; 
 }
 #wrapper{
@@ -17,7 +18,7 @@ canvas{
     text-align:center;
 }
 #controls{    
-    background: #eee;
+    box-shadow: 0 0 3px #aaaaaa inset;
     min-height: 60px;
     display: flex;
     margin: 0 auto 20px;
@@ -26,6 +27,7 @@ canvas{
     padding: 10px 20px;
     box-sizing: border-box;
     width: 800px;
+    border-radius: 2px;
 }
 #controls label{
     display: block;
@@ -55,7 +57,8 @@ h1{
     margin: 0;
 }
 img{
-    box-shadow: 1px 1px 3px #ddd;
+    box-shadow: 0 0 3px #ccc;
     display: inline-block;
     margin: 10px 10px 0;
+    background-color: #fff;
 }

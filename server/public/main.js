@@ -16,6 +16,10 @@
         _canvas.addEventListener('mousedown', (e) => onmousedown(e))
         _canvas.addEventListener('mousemove', (e) => onmousemove(e))
         _canvas.addEventListener('mouseup', (e) => drawing = false)
+
+        _canvas.addEventListener('touchstart', (e) => onmousedown(e))
+        _canvas.addEventListener('touchmove', (e) => onmousemove(e))
+        _canvas.addEventListener('touchend', (e) => drawing = false)
 		
         socket.on('connected', console.log);
         socket.on('clear-canvas', () => _canvas.width = _canvas.width);
@@ -32,6 +36,7 @@
         });
     
         function onmousedown(e){
+            console.log(e)
             const x = xPos(e);
             const y = yPos(e);
             drawing = true;
@@ -71,9 +76,9 @@
         };
 		
 		function xPos(evt){
-			return evt.pageX - _canvas.offsetLeft;;
+			return (evt.pageX || evt.touches[0].pageX) - _canvas.offsetLeft;;
 		};
 		function yPos(evt){
-			return evt.pageY - _canvas.offsetTop;
+			return (evt.pageY || evt.touches[0].pageY) - _canvas.offsetTop;
 		};
 }())
