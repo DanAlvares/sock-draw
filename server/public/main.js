@@ -36,7 +36,6 @@
         });
     
         function onmousedown(e){
-            console.log(e)
             const x = xPos(e);
             const y = yPos(e);
             drawing = true;
