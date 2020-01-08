@@ -10,6 +10,7 @@ canvas{
     display:block;
     margin: 0 auto;
     position: relative; 
+    max-width: 100%;
 }
 #wrapper{
     margin:auto;
@@ -26,6 +27,7 @@ canvas{
     padding: 10px 20px;
     box-sizing: border-box;
     width: 800px;
+    max-width: 100%;
 }
 #controls label{
     display: block;

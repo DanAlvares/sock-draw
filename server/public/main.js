@@ -44,6 +44,7 @@
             _ctx.lineWidth = _lineWeight.value;
             _ctx.strokeStyle = _color.value;
             
+            e.preventDefault();
             emitDraw('draw-start', x, y, _lineWeight.value, _color.value)
         };
 
