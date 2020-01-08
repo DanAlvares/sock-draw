@@ -11,7 +11,6 @@ canvas{
     display:block;
     margin: 0 auto 20px;
     position: relative; 
-    max-width: 95%;
 }
 #wrapper{
     margin:auto;
@@ -20,7 +19,6 @@ canvas{
 }
 #controls{    
     box-shadow: 0 0 3px #aaaaaa inset;
-    max-width: 95%;
     min-height: 60px;
     display: flex;
     margin: 0 auto 20px;
@@ -53,6 +51,7 @@ header{
     padding: 20px;
     box-sizing: border-box;
     color: white;
+    min-width: 800px;
 }
 h1{
     line-height: 30px;
