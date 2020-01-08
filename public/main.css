@@ -1,0 +1,78 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: fantasy, arial;
+    background-color: #f4f4f4;
+}
+canvas{
+    background-color: #fff;
+    box-shadow:0 0 5px #999;
+    display:block;
+    margin: 0 auto 20px;
+    position: relative; 
+    max-width: 95%;
+}
+#wrapper{
+    margin:auto;
+    position:relative;
+    text-align:center;
+}
+#controls{    
+    box-shadow: 0 0 3px #aaaaaa inset;
+    max-width: 95%;
+    min-height: 60px;
+    display: flex;
+    margin: 0 auto 20px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    box-sizing: border-box;
+    width: 800px;
+    border-radius: 2px;
+}
+#controls label{
+    display: block;
+}
+#controls input{
+    border:solid 1px #ccc;
+    padding: 4px;
+    height: 20px;
+    width: 76px;
+}
+#images > div{
+    float:left;
+    text-align:center;
+    width:220px
+}
+header{
+    background-color: rgb(46, 95, 151);
+    box-shadow: 0 1px 3px rgb(23, 57, 95);
+    height:60px;
+    margin-bottom: 30px;
+    padding: 20px;
+    box-sizing: border-box;
+    color: white;
+}
+h1{
+    line-height: 30px;
+    margin: 0;
+}
+button{
+    background: #ddd;
+    border: solid 1px #aaa;
+    padding: 10px 20px;
+    border-radius: 1px;
+    text-transform: uppercase;
+}
+button.success {
+    background: rgb(13, 117, 62);
+    color: white;
+    border: solid 1px rgb(8, 92, 47);
+}
+img{
+    box-shadow: 0 0 3px #ccc;
+    display: inline-block;
+    margin: 10px 10px 0;
+    background-color: #fff;
+}

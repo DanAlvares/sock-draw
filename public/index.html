@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sock Draw</title>
+    <link rel="stylesheet" href="main.css" />
+</head>
+<body>
+    
+<div id="wrapper">
+    <header><h1>Sock Draw</h1></header>
+
+    <canvas id="canvas" width="800" height="400"></canvas>
+
+    <section id="controls">
+        <div>
+            <label>Line Weight</label>
+            <input id="LineWeight" type="number" value="" />
+        </div>
+        <div>
+            <button id="ClearAll">Clear</button>
+            <button class="success" id="SaveAsImg">Save Image</button>
+        </div>
+        <div>
+            <label>Color</label>
+            <input id="Color" class="color" value="000000" type="color" />
+        </div>
+    </section>
+    
+    <div id="images"></div>
+</div>
+
+    <script src="socket-io.js"></script>
+    <script src="main.js?t=1578513693360"></script>
+</body>
+</html>
