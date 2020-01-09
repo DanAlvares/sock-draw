@@ -11,6 +11,7 @@ canvas{
     display:block;
     margin: 0 auto 20px;
     position: relative; 
+    cursor: url('./pencil.png') 0 30 , auto;
 }
 #wrapper{
     margin:auto;

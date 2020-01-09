@@ -9,6 +9,8 @@
         const _saveImg = document.getElementById('SaveAsImg');
         const _color = document.getElementById('Color');
         const _lineWeight = document.getElementById('LineWeight');
+
+        const currentPos = {}
         
         _saveImg.addEventListener('click', saveImg)
         _clearAll.addEventListener('click', clearCanvas)
@@ -28,38 +30,42 @@
             _canvas.width = _canvas.width;
         });
         socket.on('draw-start', (data) => _ctx.beginPath());
-        socket.on('drawing', ({x, y, strokeStyle,lineWidth}) => {
-            _ctx.lineWidth = lineWidth;
-            _ctx.strokeStyle = strokeStyle;
-            _ctx.lineTo(x, y);
-            _ctx.stroke();
+        socket.on('drawing', ({currentPos, newPos, lineWidth, strokeStyle}) => {
+            emitDraw(null, currentPos, newPos, lineWidth, strokeStyle)
         });
     
         function onmousedown(e){
             const x = xPos(e);
             const y = yPos(e);
+            currentPos.x = x;
+            currentPos.y = y;
             drawing = true;
-            _ctx.beginPath()
-            _ctx.moveTo(x, y);
-            _ctx.lineWidth = _lineWeight.value;
-            _ctx.strokeStyle = _color.value;
             
             e.preventDefault();
-            emitDraw('draw-start', x, y, _lineWeight.value, _color.value)
         };
 
         function onmousemove(e){
             if(drawing){
                 const x = xPos(e);
                 const y = yPos(e);
-                _ctx.lineTo(x, y);
-                _ctx.stroke();
-                emitDraw('drawing', x, y, _lineWeight.value, _color.value)
+                emitDraw('drawing', currentPos, {x, y}, _lineWeight.value, _color.value);
+                currentPos.x = x;
+                currentPos.y = y;
             }
         };
 
-        function emitDraw(name, x, y, lineWidth, strokeStyle){
-            socket.emit(name, { x, y, lineWidth, strokeStyle });
+        function emitDraw(name, currentPos, newPos, lineWidth, strokeStyle){
+            _ctx.beginPath();
+            _ctx.moveTo(currentPos.x, currentPos.y);
+            _ctx.lineTo(newPos.x, newPos.y);
+            _ctx.strokeStyle = strokeStyle;
+            _ctx.lineWidth = lineWidth;
+            _ctx.stroke();
+            _ctx.closePath();
+
+            if(name){
+                socket.emit(name, { currentPos, newPos, lineWidth, strokeStyle });
+            }
         }
         
         function clearCanvas(){
