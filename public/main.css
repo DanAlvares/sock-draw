@@ -16,39 +16,39 @@ canvas{
 #wrapper{
     margin:auto;
     position:relative;
-    text-align:center;
 }
 #controls{    
-    box-shadow: 0 0 3px #aaaaaa inset;
-    min-height: 60px;
     display: flex;
-    margin: 0 auto 20px;
+    margin: 0 auto 10px;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 20px;
     box-sizing: border-box;
     width: 800px;
     border-radius: 2px;
 }
-#controls label{
-    display: block;
+#controls input#Color{
+    padding: 4px 0;
+    width: 40px;
 }
-#controls input{
+#controls input#LineWeight{
     border:solid 1px #ccc;
     padding: 4px;
     height: 20px;
-    width: 76px;
+    width: 75px;
 }
 #images > div{
     float:left;
     text-align:center;
     width:220px
 }
+.buttons {
+    text-align: center;
+}
 header{
     background-color: rgb(46, 95, 151);
     box-shadow: 0 1px 3px rgb(23, 57, 95);
     height:60px;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     padding: 20px;
     box-sizing: border-box;
     color: white;
