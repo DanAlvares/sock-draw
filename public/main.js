@@ -8,12 +8,15 @@
         const _clearAll = document.getElementById('ClearAll');
         const _saveImg = document.getElementById('SaveAsImg');
         const _color = document.getElementById('Color');
+        const _colorPicker = document.querySelector('.color-picker');
         const _lineWeight = document.getElementById('LineWeight');
 
         const currentPos = {}
         
         _saveImg.addEventListener('click', saveImg)
         _clearAll.addEventListener('click', clearCanvas)
+        _color.addEventListener('change', changeColor)
+        changeColor()
         
         _canvas.addEventListener('mousedown', (e) => onmousedown(e))
         _canvas.addEventListener('mousemove', (e) => onmousemove(e))
@@ -64,6 +67,8 @@
             _ctx.closePath();
 
             if(name){
+                const w = _canvas.width;
+                const h = _canvas.height;
                 socket.emit(name, { currentPos, newPos, lineWidth, strokeStyle });
             }
         }
@@ -80,6 +85,10 @@
             socket.emit('save-image', _newImg);
             _canvas.width = _canvas.width;
         };
+
+        function changeColor(){
+            _colorPicker.style.setProperty('--color', _color.value)
+        }
 		
 		function xPos(evt){
 			return (evt.pageX || evt.touches[0].pageX) - _canvas.offsetLeft;;
