@@ -1,3 +1,3 @@
 # sock-draw
 
-DEMO: [https://sockdraw.azurewebsites.net/](https://sockdraw.azurewebsites.net/) 
+DEMO: [https://sock-draw.herokuapp.com/](https://sock-draw.herokuapp.com/) 
